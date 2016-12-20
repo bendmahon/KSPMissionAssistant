@@ -1,0 +1,8 @@
+.root{
+    -fx-background-color: #000000;
+    -fx-width: 1000px;
+}
+
+.myLabel.label .text{
+    -fx-fill: black;
+}
