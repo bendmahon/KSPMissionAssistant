@@ -6,7 +6,7 @@ public class DeltaVCalculator {
         double deltaV = (9.81*isp*Math.log(massRatio));
         return String.format("%.4f", deltaV);
     }
-    public static boolean isItEnough(double dV, String origin, String destination){
+    public static boolean isItEnough(String dV, String origin, String destination){
         return false;
     }
 }

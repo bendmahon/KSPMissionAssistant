@@ -64,7 +64,7 @@ public class DeltaVCalculatorScene {
 
         Label originLabel = new Label("Origin Body");
         ObservableList<String> planets = FXCollections.observableArrayList("Moho", "Eve", "Kerbin", "Duna");
-        //TODO Populate suborigin list based on origin selected
+
         ObservableList<String> originMoons = FXCollections.observableArrayList();
         ObservableList<String> destinationMoons = FXCollections.observableArrayList("Gilly", "Mun", "Minmus", "Ike");
 
@@ -78,9 +78,14 @@ public class DeltaVCalculatorScene {
 
         Label enoughLabel = new Label("");
         Button isItEnough = new Button("Is It Enough?");
-//        isItEnough.setOnAction(e -> {
-//            enoughLabel.setText(DeltaVCalculator.isItEnough(Double.Double(DeltaVCalculator.getDeltaV()))
-//        });
+        isItEnough.setOnAction(e -> {
+            String dV = DeltaVCalculator.getDeltaV(Double.parseDouble(ispInput.getText()), Double.parseDouble(availableFuelInput.getText()), Double.parseDouble(initialMassInput.getText()));
+            boolean enough = DeltaVCalculator.isItEnough(dV, originBody, destinationBody);
+            if (enough) isItEnough.setText("YES");
+            else{
+                enoughLabel.setText("NO");
+            }
+        });
 
         //ACTION HANDLERS
         originBodies.setOnAction(e -> {
@@ -156,6 +161,7 @@ public class DeltaVCalculatorScene {
         grid.add(destinationLabel, 0, 6);
         grid.add(destinationBodies, 1,6);
         grid.add(isItEnough, 1, 7);
+        grid.add(enoughLabel, 2, 7);
 //        grid.add(sceneChangeButton,1,7);
 
 
