@@ -1,9 +1,12 @@
 package MathAssistant;
 
 public class DeltaVCalculator {
-    public static String getDeltaV(double isp, double fuelUsed, double initialWeight){
-        double massRatio = initialWeight / (initialWeight - (fuelUsed/90));
+    public static String getDeltaV(double isp, double fuelUsed, double initialMass){
+        double massRatio = initialMass / (initialMass - fuelUsed);
         double deltaV = (9.81*isp*Math.log(massRatio));
-        return String.format("%.2f", deltaV);
+        return String.format("%.4f", deltaV);
+    }
+    public static boolean isItEnough(double dV, String origin, String destination){
+        return false;
     }
 }

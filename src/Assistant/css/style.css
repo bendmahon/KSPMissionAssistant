@@ -3,6 +3,9 @@
     -fx-width: 1000px;
 }
 
+.inputLabel {
+    -fx-padding: 0 0 10px 0;
+}
 .myLabel.label .text{
     -fx-fill: black;
 }
